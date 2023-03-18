@@ -1,0 +1,38 @@
+$primary-dark-color: #1f194c;
+
+@media(max-width: 760px) {
+
+    table tr td:nth-child(5),
+    table tr th:nth-child(5) {
+        display: none;
+
+    }
+}
+
+table tr th {
+
+    font-size: 12px;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+#dropdown-basic,
+#dropdown-basic-search {
+    background-color: transparent;
+    color: $primary-dark-color;
+    border: none;
+
+}
+
+#dropdown-basic-search {
+    padding-right: 0 !important;
+
+}
+
+
+a.dropdown-item {
+    font-size: 14px;
+    color: $primary-dark-color;
+}

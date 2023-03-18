@@ -1,0 +1,209 @@
+$transition-color-one: #7686df;
+$transition-color-two: #8b86ef;
+$transition-color-three: #b596ea;
+$transition-color-four: #cca7ea;
+$transition-color-five: #eba9e7;
+$transition-color-six: #f2b8cd;
+$transition-color-seven: #f5b7ae;
+$transition-color-eight: #f4caaa;
+$transition-color-nine: #f5d59d;
+$primary-background-color: #1f194c;
+
+$title-banner-light: #f1b7d0;
+$title-banner-dark: #dea9e9;
+
+
+
+@keyframes animate {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+//=======JUMBOTRON BANNER=======//
+.jumbotron-banner {
+
+    background: linear-gradient(-45deg,
+            $transition-color-one 0%, $transition-color-two 13%, $transition-color-three 25%,
+            $transition-color-four 38%, $transition-color-five 50%, $transition-color-six 62%,
+            $transition-color-seven 75%, $transition-color-eight 87%, $transition-color-nine 100%);
+    background-size: 500% 500%;
+    position: relative;
+    animation: animate 10s ease-in-out infinite;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .jumbotron-banner-icon {
+        background-image: url("https://i.imgur.com/E1d7RkY.png");
+        width: 600px;
+        height: 600px;
+        position: absolute;
+        background-size: cover;
+
+    }
+
+    .jumbotron-banner-title {
+        font-weight: bold;
+        text-align: center !important;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 0 20px rgba($primary-background-color, 80%);
+    }
+
+}
+
+
+
+//=======TITLE BANNER=======//
+.title-banner {
+    background-image: linear-gradient(to right, $title-banner-light, $title-banner-dark);
+    width: 100vw;
+    height: 350px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+
+    .title-banner-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .title-banner-cover {
+
+            min-width: 125px;
+            min-height: 125px;
+            max-width: 200px;
+            max-height: 200px;
+            box-shadow: 0 0 60px rgba($primary-background-color, 10%)
+        }
+
+        .title-banner-description {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            text-shadow: 0 0 20px rgba($primary-background-color, 30%);
+
+            h2 {
+                font-weight: bold;
+                color: white;
+                text-shadow: 0 0 20px rgba($primary-background-color, 30%);
+
+            }
+
+            .title-banner-metadata {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+
+            }
+        }
+    }
+
+
+}
+
+//=======EMPTY BANNER=======//
+.not-found-banner {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .not-found-banner-icon-container {
+        width: 500px;
+        height: 500px;
+
+        .banner-icon {
+            width: 500px;
+            height: 500px;
+            background-image: url("https://i.imgur.com/E1d7RkY.png");
+            position: absolute;
+            background-size: cover;
+        }
+
+    }
+
+    .not-found-banner-text-container {
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .not-found-banner-button {
+            cursor: pointer;
+            background-color: $primary-background-color;
+            border-color: $primary-background-color;
+            color: white;
+            padding: 10px;
+            transition: .2s;
+        }
+
+        .not-found-banner-button:hover {
+            background-color: white;
+            border-color: white;
+            color: $primary-background-color;
+            transform: translateY(2px);
+            box-shadow: 0 0 20px rgba($primary-background-color, 80%);
+
+
+        }
+
+
+        .not-found-banner-button:active {
+            background-color: white;
+            border-color: white;
+        }
+
+
+
+    }
+
+
+}
+
+.mix-blend-mode {
+    mix-blend-mode: multiply;
+
+
+
+}
+
+@media(max-width: 760px) {
+
+    .title-banner {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .not-found-banner .not-found-banner-text-container {
+        height: 300px;
+        padding-top: 0 !important;
+        padding-left: 40px !important;
+        ;
+        padding-right: 40px !important;
+        ;
+    }
+
+}
