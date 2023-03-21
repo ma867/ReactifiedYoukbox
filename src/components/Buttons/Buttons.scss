@@ -29,6 +29,31 @@ $secondary-light-color: #ffffff;
 
 
 
+.light-button {
+    cursor: pointer;
+    background-color: $primary-dark-color !important;
+    border-color: $primary-dark-color !important;
+    color: $secondary-light-color !important;
+    font-weight: 100;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba($primary-dark-color, 80%);
+    transition: .2s;
+}
+
+.light-button:hover {
+    background-color: $primary-dark-color;
+    border-color: $primary-dark-color;
+    color: $secondary-light-color;
+    transform: translateY(2px);
+
+}
+
+
+.light-button:active {
+    background-color: $primary-dark-color;
+    border-color: $primary-dark-color;
+}
+
 
 
 .form-button {

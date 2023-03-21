@@ -67,7 +67,7 @@ $title-banner-dark: #dea9e9;
 
 //=======TITLE BANNER=======//
 .title-banner {
-    background-image: linear-gradient(to right, $title-banner-light, $title-banner-dark);
+    background-image: linear-gradient(to right, $title-banner-light, $title-banner-dark, $transition-color-three);
     width: 100vw;
     height: 350px;
     display: flex;
@@ -89,18 +89,19 @@ $title-banner-dark: #dea9e9;
             box-shadow: 0 0 60px rgba($primary-background-color, 10%)
         }
 
+        h2 {
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 20px rgba($primary-background-color, 30%);
+
+        }
+
         .title-banner-description {
             display: flex;
             flex-direction: column;
             color: white;
             text-shadow: 0 0 20px rgba($primary-background-color, 30%);
 
-            h2 {
-                font-weight: bold;
-                color: white;
-                text-shadow: 0 0 20px rgba($primary-background-color, 30%);
-
-            }
 
             .title-banner-metadata {
                 display: flex;
@@ -206,4 +207,15 @@ $title-banner-dark: #dea9e9;
         ;
     }
 
+}
+
+.banner-image {
+
+    background: linear-gradient(-45deg,
+            $transition-color-one 0%, $transition-color-two 13%, $transition-color-three 25%,
+            $transition-color-four 38%, $transition-color-five 50%, $transition-color-six 62%,
+            $transition-color-seven 75%, $transition-color-eight 87%, $transition-color-nine 100%);
+    background-size: 500% 500%;
+    position: relative;
+    animation: animate 10s ease-in-out infinite;
 }

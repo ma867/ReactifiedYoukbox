@@ -3,7 +3,7 @@ const User = require('../../models/user')
 
 const dataController = {
 
-  index (req, res, next) {
+  index(req, res, next) {
     Playlist.find({}, (err, foundPlaylists) => {
       if (err) {
         console.error(err)
@@ -15,7 +15,7 @@ const dataController = {
     }).populate('songs')
   },
 
-  delete (req, res, next) {
+  delete(req, res, next) {
     Playlist.findByIdAndDelete(req.params.id, (err, deletedPlaylist) => {
       if (err) {
         console.error(err)
@@ -27,7 +27,7 @@ const dataController = {
     })
   },
 
-  update (req, res, next) {
+  update(req, res, next) {
     Playlist.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPlaylist) => {
       if (err) {
         console.error(err)
@@ -39,29 +39,30 @@ const dataController = {
     })
   },
 
-  async create (req, res, next) {
+  async create(req, res, next) {
     try {
-      const user = await User.findById(req.params.userId)
+      console.log(req.body)
+
       req.body.userId = req.params.userId
       req.body.artwork === '' ? req.body.artwork = 'https://i.imgur.com/0FUT9eJ.png' : req.body.artwork = req.body.artwork
-
+      const user = await User.findById(req.params.userId)
       Playlist.create(req.body, (err, createdPlaylist) => {
         if (err) {
           console.error(err)
-          res.status(400).send(err)
         } else {
           user.playlists.addToSet(createdPlaylist._id)
           user.save()
           res.locals.data.playlist = createdPlaylist
           next()
         }
-      }).populate('songs')
+      })
     } catch {
       res.status(400).json("request didn't go through")
     }
   },
 
-  show (req, res, next) {
+
+  show(req, res, next) {
     Playlist.findById(req.params.id).populate('songs').exec((err, foundPlaylist) => {
       if (err) {
         console.error(err)
@@ -76,10 +77,10 @@ const dataController = {
 }
 
 const apiController = {
-  index (req, res, next) {
+  index(req, res, next) {
     res.json(res.locals.data.playlists)
   },
-  show (req, res, next) {
+  show(req, res, next) {
     res.json(res.locals.data.playlist)
   }
 }

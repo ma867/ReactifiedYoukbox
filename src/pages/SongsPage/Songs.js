@@ -60,6 +60,7 @@ export default function Songs({
                 },
                 body: JSON.stringify({ ...songFormDataCopy }),
             });
+
             setSongFormData({
                 title: "",
                 artist: "",
@@ -69,6 +70,7 @@ export default function Songs({
             });
             setShowUploadSongModal(false);
             getRefreshedUser();
+
         } catch (error) {
             console.error(error);
         }
@@ -80,6 +82,7 @@ export default function Songs({
 
     return (
         <>
+
             <NavBar
                 page="songs"
                 user={user}

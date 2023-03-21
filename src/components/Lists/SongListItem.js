@@ -21,7 +21,7 @@ export default function SongListItem({ idx, song, deleteSong,
                                     height="70px"
                                 />
                                 <div className="audio-wrapper">
-                                    <audio src={song.audio} controls />
+                                    <audio src={song?.audio} controls />
                                 </div>
                             </div>
                         </td>
@@ -29,13 +29,13 @@ export default function SongListItem({ idx, song, deleteSong,
                             <div className="flex vertical text-left">
                                 <h5 className="main-song-title">{song.title}</h5>
                                 <h6 className="main-artist-title">
-                                    {song.artist.join(" • ")}
+                                    {song?.artist?.join(" • ")}
                                 </h6>
                             </div>
                         </td>
                         <td className="main-album-title">{song.album}</td>
                         <td className="main-date-title">
-                            {song.createdAt.slice(0, 10)}
+                            {song?.createdAt?.slice(0, 10)}
                         </td>
                         <td>
                             <Dropdown>
@@ -59,7 +59,7 @@ export default function SongListItem({ idx, song, deleteSong,
                                         />
                                         &nbsp; Remove from Library
                                     </Dropdown.Item>
-                                    {!song.spotify ? (
+                                    {!song?.spotify ? (
                                         <Dropdown.Item
                                             href=""
                                             onClick={() => {

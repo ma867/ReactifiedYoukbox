@@ -1,13 +1,13 @@
 import { faTrashCan, faFileEdit, faEllipsis } from '@fortawesome/free-solid-svg-icons'
 import { Dropdown } from 'react-bootstrap'
-export default function TitleBanner({ page, user, cover, title, description, listLength, FontAwesomeIcon }) {
+export default function TitleBanner({ page, user, cover, title, description, listLength, FontAwesomeIcon, deletePlaylist, setShowUpdatePlaylistModal }) {
     return (
 
         <div className='title-banner  pt-5  p-5'>
             <div className='title-banner-contents mt-5 pt-3 pb-3 p-3 '>
 
                 {
-                    page !== 'search'
+                    page !== 'search' && page !== 'playlists'
                         ? <>
                             <img className='p-2 title-banner-cover' src={cover} />
                             <div className='title-banner-description p-5'>
@@ -25,13 +25,15 @@ export default function TitleBanner({ page, user, cover, title, description, lis
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu>
-                                                    <Dropdown.Item href="" ><FontAwesomeIcon
-                                                        icon={faTrashCan}
+                                                    <Dropdown.Item href=""
+                                                        onClick={deletePlaylist}><FontAwesomeIcon
+                                                            icon={faTrashCan}
 
-                                                        className='icon'
-                                                    />&nbsp;
+                                                            className='icon'
+                                                        />&nbsp;
                                                         Delete Playlist</Dropdown.Item>
-                                                    <Dropdown.Item href="" >
+                                                    <Dropdown.Item href=""
+                                                        onClick={setShowUpdatePlaylistModal} >
                                                         <FontAwesomeIcon
                                                             icon={faFileEdit}
 

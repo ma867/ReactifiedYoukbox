@@ -2,6 +2,7 @@ $navbar-primary-light: #f1b7d0;
 $navbar-primary-dark: #dea9e9;
 $primary-dark-color: #1f194c;
 $transition-color-two: #8b86ef;
+$transition-color-three: #b596ea;
 
 .nav-image,
 .nav-image-logged-in {
@@ -14,6 +15,8 @@ $transition-color-two: #8b86ef;
     .nav-link {
 
         color: white !important;
+        text-shadow: 0 0 10px rgba($primary-dark-color, 80%);
+
     }
 }
 
@@ -22,7 +25,7 @@ $transition-color-two: #8b86ef;
 }
 
 .nav-image-logged-in {
-    background-image: linear-gradient(to right, $navbar-primary-light, $navbar-primary-dark);
+    background-image: linear-gradient(to right, $navbar-primary-light, $navbar-primary-dark, $transition-color-three);
 
 }
 
@@ -33,7 +36,6 @@ nav {
 #collasible-nav-dropdown {
     display: flex;
     flex-direction: row;
-
     align-items: center;
     padding-top: 0;
     padding-bottom: 0;
@@ -41,8 +43,7 @@ nav {
 }
 
 .nav-link {
-    text-shadow: 0 0 10px rgba($primary-dark-color, 80%);
-    text-align: center;
+    // text-align: center;
 }
 
 .nav-link:hover {

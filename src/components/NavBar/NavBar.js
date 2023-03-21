@@ -15,7 +15,8 @@ export default function NavBar({
     auth,
     setAuth,
     FontAwesomeIcon,
-    setShowUploadSongModal
+    setShowUploadSongModal,
+    setShowCreatePlaylistModal
 }) {
     const navbarRef = useRef(null);
 
@@ -84,10 +85,10 @@ export default function NavBar({
 
 
 
-                                    {page === "playlist" ? (
+                                    {page === "playlists" ? (
                                         <Nav.Link
                                             href=""
-
+                                            onClick={() => { setShowCreatePlaylistModal(true) }}
                                         >
                                             New Playlist
                                         </Nav.Link>

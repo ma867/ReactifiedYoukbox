@@ -7,6 +7,7 @@ const songSchema = new mongoose.Schema({
   artwork: { type: String, default: 'https://i.imgur.com/0FUT9eJ.png' },
   audio: { type: String },
   spotify: { type: Boolean, default: false },
+  spotifyId: { type: String },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, {
   timestamps: true

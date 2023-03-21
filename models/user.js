@@ -19,6 +19,7 @@ const userSchema = new Schema({
     required: true
   },
   songs: [{ type: Schema.Types.ObjectId, ref: 'Song' }],
+  spotifyIds: { type: Array },
   playlists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }],
   image: { type: String }
 }, {

@@ -12,8 +12,7 @@ export default function SongList({
         <>
 
             <Container
-                className="mt-5  mb-5 overflow-auto"
-                style={{ width: "100%", height: "500px" }}
+                className="mt-5  mb-5 overflow-auto song-list-container"
             >
                 <Table responsive="xl">
                     <thead>
@@ -30,6 +29,7 @@ export default function SongList({
                         {songs?.map((song, idx) => {
                             return (
                                 <SongListItem
+                                    key={idx}
                                     idx={idx}
                                     song={song}
                                     setShowUpdateSongModal={setShowUpdateSongModal}
