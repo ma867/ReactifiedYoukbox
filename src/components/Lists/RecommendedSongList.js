@@ -1,6 +1,6 @@
 import './Lists.scss'
 import { Table, Container, Button } from 'react-bootstrap'
-import PlaylistSongListItem from './PlaylistSongListItem';
+import RecommendedSongListItem from './RecommendedSongListItem';
 import LightButton from '../Buttons/LightButton';
 
 export default function RecommendedSongList({
@@ -36,53 +36,17 @@ export default function RecommendedSongList({
                                         {
                                             foundSong ?
 
-                                                <tr key={idx}>
+                                                <RecommendedSongListItem
 
-                                                    <td>
-                                                        <div className="album-wrapper">
-                                                            <img
-                                                                className="rounded-0"
-                                                                src={artwork}
-                                                                width="70px"
-                                                                height="70px"
-                                                            />
-                                                            <div className="audio-wrapper">
-                                                                <audio src={audio} controls />
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className="song-title">
-                                                        <div className="flex vertical text-left">
-                                                            <h5 className="main-song-title">{title}</h5>
-                                                            <h6 className="main-artist-title">
-                                                                {/* {artists.map((artist, idx) => {
-                                                                    artistsNames.push(artist.profile.name)
+                                                    foundSong={foundSong}
+                                                    foundSongsAudio={foundSongsAudio}
+                                                    addPlaylistSong={addPlaylistSong}
+                                                    playlistId={playlistId}
+                                                    idx={idx}
+                                                />
 
-                                                                    if (idx !== artists.length - 1)
-                                                                        return (
-                                                                            <>
-                                                                                {artist.profile.name + ", "}
-                                                                            </>
-                                                                        )
-                                                                    else {
-                                                                        return (
-                                                                            <>
-                                                                                {artist.profile.name}
-                                                                            </>
 
-                                                                        )
-                                                                    }
-                                                                })} */}
-                                                            </h6>
-                                                        </div>
-                                                    </td>
-                                                    <td className="main-album-title">{album}</td>
-                                                    <td className="">
-                                                        <LightButton buttonHeader='Add to Playlist' buttonFunction={() => { addPlaylistSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }, playlistId) }} />
-                                                        {/* <Button onClick={() => { addPlaylistSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }, playlistId) }}>ADD SONG</Button> */}
-                                                    </td>
-                                                </tr> :
-                                                ""
+                                                : ""
                                         }
                                     </>
                                 )

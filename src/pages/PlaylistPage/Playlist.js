@@ -129,7 +129,7 @@ export default function Playlist({
 
             <Container className="mt-5  mb-5 overflow-auto playlist-song-container" >
                 <div className="flex horizontal space-between">
-                    <h2 className="title">Search</h2>
+                    <h2 className="title">Recommended Songs</h2>
 
                     <Form className="d-flex" onSubmit={handleSearchBarSubmit}>
                         <Form.Control
@@ -147,19 +147,28 @@ export default function Playlist({
                     </Form>
                 </div>
             </Container>
-            <PlaylistSongList
 
-                foundSongs={foundSongs}
-                foundSongsAudio={foundSongsAudio}
-                addPlaylistSong={addPlaylistSong}
-                playlistId={params.playlistId}
+            {
+                searchBarData === "" ?
 
-            />
-            <RecommendedSongList
-                foundSongs={pollenSongs}
-                foundSongsAudio={foundSongsAudio}
-                addPlaylistSong={addPlaylistSong}
-                playlistId={params.playlistId} />
+                    <RecommendedSongList
+                        foundSongs={pollenSongs}
+                        foundSongsAudio={foundSongsAudio}
+                        addPlaylistSong={addPlaylistSong}
+                        playlistId={params.playlistId} />
+
+                    :
+                    <PlaylistSongList
+
+                        foundSongs={foundSongs}
+                        foundSongsAudio={foundSongsAudio}
+                        addPlaylistSong={addPlaylistSong}
+                        playlistId={params.playlistId}
+
+                    />
+            }
+
+
 
         </>
     )
