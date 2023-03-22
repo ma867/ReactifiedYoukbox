@@ -5,7 +5,7 @@ export default function SongList({
     songs, deleteSong,
     setShowUpdateSongModal,
     setSong,
-    setUpdatedArtwork, FontAwesomeIcon
+    setUpdatedArtwork, FontAwesomeIcon, page, playlistId
 }) {
 
     return (
@@ -36,7 +36,9 @@ export default function SongList({
                                     setSong={setSong}
                                     deleteSong={deleteSong}
                                     setUpdatedArtwork={setUpdatedArtwork}
-                                    FontAwesomeIcon={FontAwesomeIcon} />
+                                    FontAwesomeIcon={FontAwesomeIcon}
+                                    page={page}
+                                    playlistId={playlistId} />
 
                             );
                         })}

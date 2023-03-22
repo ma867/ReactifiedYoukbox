@@ -3,6 +3,7 @@ import * as userService from '../../../utilities/users-service'
 import { useState } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
 import LoginForm from '../../Forms/LoginForm'
+import AuthBanner from '../../Banners/AuthBanner'
 export default function Login({ setUser, setVisible, navigate }) {
     const [credentials, setCredentials] = useState({
         email: '',
@@ -29,11 +30,10 @@ export default function Login({ setUser, setVisible, navigate }) {
         <>
 
             <Container fluid className='w-100 vh-100'>
-                <Row>
-                    <Col lg={6} className='full-height flex banner-image justify-content-center align-items-center text-center'>
-                        <h2 className='title light display-3'>Oh, hello! 👋<br />We missed you! </h2><br />
 
-                    </Col>
+                <Row >
+                    <AuthBanner title='Oh, hello! 👋' subtitle='We missed you!' />
+
                     <Col lg={6} className='full-height flex justify-content-center align-items-center light-background'>
 
                         <LoginForm handleChange={handleChange} handleSubmit={handleSubmit} setVisible={setVisible} credentials={credentials} />

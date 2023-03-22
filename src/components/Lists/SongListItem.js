@@ -4,7 +4,7 @@ import './Lists.scss'
 export default function SongListItem({ idx, song, deleteSong,
     setShowUpdateSongModal,
     setSong,
-    setUpdatedArtwork, FontAwesomeIcon }) {
+    setUpdatedArtwork, FontAwesomeIcon, page, playlistId }) {
 
     return (
         <>
@@ -47,18 +47,45 @@ export default function SongListItem({ idx, song, deleteSong,
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item
-                                        href=""
-                                        onClick={() => {
-                                            deleteSong(song._id);
-                                        }}
-                                    >
-                                        <FontAwesomeIcon
-                                            icon={faTrashCan}
-                                            className="icon"
-                                        />
-                                        &nbsp; Remove from Library
-                                    </Dropdown.Item>
+
+                                    {
+                                        page === 'playlist' ?
+                                            <Dropdown.Item
+                                                href=""
+                                                onClick={() => {
+                                                    console.log("HI")
+                                                    deleteSong(playlistId, song._id);
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faTrashCan}
+                                                    className="icon"
+                                                />
+                                                &nbsp; Remove from Playlist
+                                            </Dropdown.Item>
+
+                                            :
+
+                                            <Dropdown.Item
+                                                href=""
+                                                onClick={() => {
+                                                    deleteSong(song._id);
+                                                }}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faTrashCan}
+                                                    className="icon"
+                                                />
+                                                &nbsp; Remove from Library
+                                            </Dropdown.Item>
+
+                                    }
+
+
+
+
+
+
                                     {!song?.spotify ? (
                                         <Dropdown.Item
                                             href=""

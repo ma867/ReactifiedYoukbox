@@ -4,7 +4,7 @@ import RecommendedSongListItem from './RecommendedSongListItem';
 import LightButton from '../Buttons/LightButton';
 
 export default function RecommendedSongList({
-    foundSongs, foundSongsAudio, playlistId, addPlaylistSong
+    foundSongs, foundSongsAudio, playlistId, addPlaylistSong, addSong, page, deleteSongFromSearch, user, deletePlaylistSong, deleteSpotifyPlaylistSong, songs
 }) {
 
     return (
@@ -21,29 +21,44 @@ export default function RecommendedSongList({
 
                             ? foundSongs.map((foundSong, idx) => {
 
-
-                                const title = foundSong.track.name
-                                const spotifyId = foundSong.track.id
-                                const artists = foundSong.track.artists
-                                const artistsNames = []
-                                const album = foundSong.track.album.name
-                                const artwork = foundSong.track.album.images[1].url
-                                const audio = foundSongsAudio[idx]?.preview_url
-
-
                                 return (
                                     <>
                                         {
                                             foundSong ?
 
-                                                <RecommendedSongListItem
+                                                page === 'playlist' ?
+                                                    <RecommendedSongListItem
 
-                                                    foundSong={foundSong}
-                                                    foundSongsAudio={foundSongsAudio}
-                                                    addPlaylistSong={addPlaylistSong}
-                                                    playlistId={playlistId}
-                                                    idx={idx}
-                                                />
+                                                        foundSong={foundSong}
+                                                        foundSongsAudio={foundSongsAudio}
+                                                        addPlaylistSong={addPlaylistSong}
+                                                        deleteSongFromSearch={deleteSongFromSearch}
+                                                        playlistId={playlistId}
+                                                        idx={idx}
+                                                        user={user}
+                                                        page='playlist'
+                                                        deletePlaylistSong={deletePlaylistSong}
+                                                        deleteSpotifyPlaylistSong={deleteSpotifyPlaylistSong}
+                                                        songs={songs}
+                                                    /> :
+
+
+                                                    <RecommendedSongListItem
+
+                                                        foundSong={foundSong}
+                                                        foundSongsAudio={foundSongsAudio}
+                                                        addSong={addSong}
+                                                        deleteSongFromSearch={deleteSongFromSearch}
+                                                        playlistId={playlistId}
+                                                        idx={idx}
+                                                        user={user}
+                                                    />
+
+
+
+
+
+
 
 
                                                 : ""

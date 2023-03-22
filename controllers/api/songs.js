@@ -95,8 +95,31 @@ const dataController = {
         } else {
           if (deletedSong.spotify === true) {
             user.spotifyIds.remove(deletedSong.spotifyId)
+            user.songs.remove(deletedSong._id)
           }
           user.save()
+          res.locals.data.song = deletedSong
+          next()
+        }
+      })
+
+    }
+    catch {
+      res.status(400).json('request didnt go through')
+    }
+
+  },
+
+  async deletePlaylistSong(req, res, next) {
+    try {
+      const playlist = await Playlist.findById(req.params.id)
+      Song.findByIdAndDelete(req.params.songId, (err, deletedSong) => {
+        if (err) {
+          console.error(err)
+          res.status(400).send(err)
+        } else {
+          playlist.songs.remove(deletedSong._id)
+          playlist.save()
           res.locals.data.song = deletedSong
           next()
         }
@@ -121,6 +144,7 @@ const dataController = {
           if (deletedSong.spotify === true) {
             user.spotifyIds.remove(deletedSong.spotifyId)
           }
+          user.songs.remove(deletedSong._id)
           user.save()
           res.locals.data.song = deletedSong
           next()

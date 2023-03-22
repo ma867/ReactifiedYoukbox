@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import NavBar from "../../components/NavBar/NavBar";
 import TitleBanner from "../../components/Banners/TitleBanner";
 import UploadSongModal from "../../components/Modals/UploadSongModal";
 import UpdateSongModal from "../../components/Modals/UpdateSongModal";
 import NotFoundBanner from "../../components/Banners/NotFoundBanner";
+import PlaylistSongList from "../../components/Lists/PlaylistSongList";
+import RecommendedSongList from "../../components/Lists/RecommendedSongList";
 import Footer from "../../components/Footer/Footer";
 import SongList from "../../components/Lists/SongList";
+
 
 
 export default function Songs({
@@ -20,10 +24,10 @@ export default function Songs({
     options,
     getRefreshedUser,
     deleteSong,
+    deleteSongFromSearch,
     showUploadSongModal,
     setShowUploadSongModal,
-
-
+    addSong,
     showUpdateSongModal,
     setShowUpdateSongModal,
     updateSong,
@@ -31,7 +35,10 @@ export default function Songs({
     song,
     setSong,
     setUpdatedArtwork,
-    updatedArtwork
+    updatedArtwork,
+    findPollenSongs,
+    pollenSongs,
+    foundSongsAudio
 
 }) {
     const [songFormData, setSongFormData] = useState({
@@ -78,6 +85,7 @@ export default function Songs({
 
     useEffect(() => {
         getRefreshedUser();
+        findPollenSongs()
     }, []);
 
     return (
@@ -142,6 +150,25 @@ export default function Songs({
             ) : (
                 <NotFoundBanner message="Your library is currently empty. Add songs below or use the search bar to find your favorites tunes." buttonMessage="Add Songs" />
             )}
+
+
+            <Container className="mt-5  mb-5 overflow-auto playlist-song-container" >
+
+                <h2 className="title">Recommended Songs</h2>
+
+
+            </Container>
+            <RecommendedSongList
+                foundSongs={pollenSongs}
+                foundSongsAudio={foundSongsAudio}
+                deleteSongFromSearch={deleteSongFromSearch}
+                addSong={addSong}
+                page=''
+                user={user} />
+
+
+
+
 
             <Footer FontAwesomeIcon={FontAwesomeIcon} />
         </>

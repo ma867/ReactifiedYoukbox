@@ -15,7 +15,7 @@ export default function NotFoundBanner({ message, buttonMessage }) {
                 </h2>
                 <p>{message}</p>
                 <br />
-                <Button className='not-found-banner-button' >yerr</Button>
+                {/* <Button className='not-found-banner-button' >yerr</Button> */}
             </div>
 
         </div>

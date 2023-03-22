@@ -48,7 +48,9 @@ export default function Playlist({
     updatePlaylist,
     setUpdatedPlaylistArtwork,
     findPollenSongs,
-    pollenSongs
+    pollenSongs,
+    getRefreshedUser,
+    deleteSpotifyPlaylistSong
 
 
 }) {
@@ -65,6 +67,7 @@ export default function Playlist({
         findSong(searchBarData)
     };
     useEffect(() => {
+        getRefreshedUser()
         getPlaylist(params.playlistId)
         findPollenSongs()
 
@@ -101,7 +104,9 @@ export default function Playlist({
                     setSong={setSong}
                     deleteSong={deleteSong}
                     setUpdatedArtwork={setUpdatedArtwork}
-                    FontAwesomeIcon={FontAwesomeIcon} />
+                    FontAwesomeIcon={FontAwesomeIcon}
+                    page='playlist'
+                    playlistId={playlist?._id} />
                 :
                 <>
                     <NotFoundBanner message="Your playlist is empty. Add songs below or use the search bar to find your favorites tunes." buttonMessage="Add Songs" />
@@ -155,7 +160,13 @@ export default function Playlist({
                         foundSongs={pollenSongs}
                         foundSongsAudio={foundSongsAudio}
                         addPlaylistSong={addPlaylistSong}
-                        playlistId={params.playlistId} />
+                        deletePlaylistSong={deleteSong}
+                        playlistId={playlist?._id}
+                        page='playlist'
+                        deleteSpotifyPlaylistSong={deleteSpotifyPlaylistSong}
+                        user={user}
+                        songs={playlist?.songs} />
+
 
                     :
                     <PlaylistSongList
@@ -164,6 +175,7 @@ export default function Playlist({
                         foundSongsAudio={foundSongsAudio}
                         addPlaylistSong={addPlaylistSong}
                         playlistId={params.playlistId}
+
 
                     />
             }

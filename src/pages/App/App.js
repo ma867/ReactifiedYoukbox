@@ -124,8 +124,8 @@ function App() {
         body: JSON.stringify({ ...songData })
       })
       const data = await response.json()
-      getRefreshedUser()
 
+      getRefreshedUser()
     } catch (error) {
       console.error(error)
     }
@@ -142,7 +142,7 @@ function App() {
         body: JSON.stringify({ ...songData })
       })
       const data = await response.json()
-
+      getPlaylist(id)
       getRefreshedUser()
 
     } catch (error) {
@@ -150,6 +150,38 @@ function App() {
     }
   }
 
+  const deletePlaylistSong = async (id, songId) => {
+    try {
+      await fetch(`/api/songs/playlistId/${id}/songId/${songId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      getPlaylist(id)
+      getRefreshedUser()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+
+
+  const deleteSpotifyPlaylistSong = async (id, songId) => {
+    try {
+      await fetch(`/api/songs/playlistId/${id}/songId/${songId}/user/${user?._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      getRefreshedUser()
+      getPlaylist()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   const getPlaylist = async (id) => {
     try {
@@ -162,6 +194,7 @@ function App() {
       })
       const data = await response.json()
       setPlaylist(data)
+      getRefreshedUser()
 
     } catch (error) {
       console.error(error)
@@ -362,7 +395,7 @@ function App() {
                   deleteSong={deleteSong}
                   showUploadSongModal={showUploadSongModal}
                   setShowUploadSongModal={setShowUploadSongModal}
-
+                  addSong={addSong}
                   updatedArtwork={updatedArtwork}
                   setUpdatedArtwork={setUpdatedArtwork}
                   showUpdateSongModal={showUpdateSongModal}
@@ -370,7 +403,13 @@ function App() {
                   song={song}
                   setSong={setSong}
                   updateSong={updateSong}
+
                   handleChangeUpdateSong={handleChangeUpdateSong}
+
+                  findPollenSongs={findPollenSongs}
+                  pollenSongs={pollenSongs}
+                  foundSongsAudio={foundSongsAudio}
+                  deleteSongFromSearch={deleteSongFromSearch}
                 />
               }
             />
@@ -432,7 +471,7 @@ function App() {
 
               //===============
               setShowUpdateSongModal={setShowUpdateSongModal}
-              deleteSong={deleteSong}
+              deleteSong={deletePlaylistSong}
               setUpdatedArtwork={setUpdatedArtwork}
               setSong={setSong}
               //============
@@ -444,6 +483,9 @@ function App() {
               setUpdatedPlaylistArtwork={setUpdatedPlaylistArtwork}
               findPollenSongs={findPollenSongs}
               pollenSongs={pollenSongs}
+              getRefreshedUser={getRefreshedUser}
+              deleteSpotifyPlaylistSong={deleteSpotifyPlaylistSong}
+
 
 
 
