@@ -94,7 +94,7 @@ export default function Playlists({ page,
                                         return (
                                             <PlaylistCard
                                                 playlist={playlist}
-                                                idx={idx}
+                                                idx={playlist._id}
                                                 FontAwesomeIcon={FontAwesomeIcon}
                                                 navigate={navigate}
                                                 deletePlaylist={deletePlaylist}

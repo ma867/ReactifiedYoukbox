@@ -16,7 +16,7 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
         <>
             {
                 playlist ?
-                    <Col xs={6} md={3} lg={3} className='mb-3 search-cards' key={idx} >
+                    <Col xs={6} md={3} lg={3} className='mb-3 search-cards' key={id} >
                         <Card className='shadow-sm border-0 rounded-0' style={{ width: '100%' }}>
 
                             <div className='album-wrapper'>
