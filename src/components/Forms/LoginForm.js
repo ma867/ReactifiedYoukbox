@@ -7,11 +7,11 @@ export default function LoginForm({ handleSubmit, handleChange, setVisible, cred
             <h1 className='pb-3'>Login</h1>
             <Form.Group className='mb-3' controlId='formBasicEmail'>
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control className='login-input' type='email' name='email' onChange={handleChange} value={credentials.email} placeholder='Email' />
+                <Form.Control className='login-input' type='email' name='email' onChange={handleChange} value={credentials.email} placeholder='Email' required />
             </Form.Group>
             <Form.Group className='mb-3 pb-3' controlId='formBasicPassword'>
                 <Form.Label>Password</Form.Label>
-                <Form.Control className='login-input' type='password' name='password' onChange={handleChange} value={credentials.password} placeholder='Password' />
+                <Form.Control className='login-input' type='password' name='password' onChange={handleChange} value={credentials.password} placeholder='Password' required />
             </Form.Group>
             <FormButton buttonHeader='Login' />
             <br />
