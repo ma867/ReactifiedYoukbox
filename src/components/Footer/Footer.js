@@ -2,7 +2,6 @@
 import './Footer.scss'
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { Container, Col, Row } from 'react-bootstrap'
-
 export default function Footer({ FontAwesomeIcon }) {
     return (
         <footer>

@@ -1,20 +1,17 @@
 import './Lists.scss'
 import { Table, Container } from 'react-bootstrap'
 import SongListItem from './SongListItem';
-export default function SongList({
-    songs, deleteSong,
-    setShowUpdateSongModal,
-    setSong,
-    setUpdatedArtwork, FontAwesomeIcon, page, playlistId
+export default function SongList({ songs, deleteSong, setShowUpdateSongModal, setSong, setUpdatedArtwork, FontAwesomeIcon, page, playlistId
 }) {
 
     return (
         <>
 
             <Container
-                className="mt-5  mb-5 overflow-auto song-list-container"
+                className="mt-5 mb-5 rounded-4  p-3  pb- 3 overflow-auto song-list-container "
+
             >
-                <Table responsive="xl">
+                <Table responsive="xl" className="">
                     <thead>
                         <tr>
                             <th>#</th>

@@ -8,11 +8,12 @@ import UpdatePlaylistModal from "../../components/Modals/UpdatePlaylistModal";
 import RecommendedSongList from "../../components/Lists/RecommendedSongList";
 
 
-import { Form, Button, Container, Row, Table } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function Playlist({
+
     user,
     navigate,
     searchBarData,
@@ -22,41 +23,29 @@ export default function Playlist({
     UploadButton,
     options,
     getPlaylist,
-    deletePlaylist,
     playlist,
     findSong,
     foundSongs,
     foundSongsAudio,
     addPlaylistSong,
-    //========
+    deletePlaylist,
+    showUpdatePlaylistModal,
+    setShowUpdatePlaylistModal,
+
     setShowUpdateSongModal,
     deleteSong,
     setUpdatedArtwork,
     setSong,
-
-    //=========
-
-    deleteSongFromSearch,
-    addSong,
-
-    //---------------
-
+    updatePlaylist,
     handleChangeUpdatePlaylist,
 
-    showUpdatePlaylistModal,
-    setShowUpdatePlaylistModal,
-    updatePlaylist,
-    setUpdatedPlaylistArtwork,
     findPollenSongs,
     pollenSongs,
     getRefreshedUser,
     deleteSpotifyPlaylistSong
 
-
 }) {
     const params = useParams()
-
-    const [artwork, setArtwork] = useState(playlist?.artwork);
 
     const handleSearchBarChange = (e) => {
         setSearchBarData(e.target.value);
@@ -70,7 +59,6 @@ export default function Playlist({
         getRefreshedUser()
         getPlaylist(params.playlistId)
         findPollenSongs()
-
     }, [])
     return (
 
@@ -118,11 +106,9 @@ export default function Playlist({
 
                     <UpdatePlaylistModal
 
-                        setUpdatedArtwork={setUpdatedPlaylistArtwork}
                         showUpdatePlaylistModal={showUpdatePlaylistModal}
                         setShowUpdatePlaylistModal={setShowUpdatePlaylistModal}
                         playlist={playlist}
-
                         updatePlaylist={updatePlaylist}
                         handleChangeUpdatePlaylist={handleChangeUpdatePlaylist}
                         uploader={uploader}
@@ -132,7 +118,7 @@ export default function Playlist({
                     : ""
             }
 
-            <Container className="mt-5  mb-5 overflow-auto playlist-song-container" >
+            <Container className="mt-5  mb-5 overflow-auto playlist-song-container-text" >
                 <div className="flex horizontal space-between">
                     <h2 className="title">Recommended Songs</h2>
 
@@ -165,19 +151,21 @@ export default function Playlist({
                         page='playlist'
                         deleteSpotifyPlaylistSong={deleteSpotifyPlaylistSong}
                         user={user}
-                        songs={playlist?.songs} />
+                        songs={playlist?.songs}
+                        FontAwesomeIcon={FontAwesomeIcon} />
 
+                    : foundSongs?.length === 0 ?
 
-                    :
-                    <PlaylistSongList
+                        <NotFoundBanner message="We haven't found your song yet. Type the name on the bar and hit 'enter' to load results." />
+                        :
+                        <PlaylistSongList
+                            foundSongs={foundSongs}
+                            foundSongsAudio={foundSongsAudio}
+                            addPlaylistSong={addPlaylistSong}
+                            playlistId={params.playlistId}
+                            FontAwesomeIcon={FontAwesomeIcon}
 
-                        foundSongs={foundSongs}
-                        foundSongsAudio={foundSongsAudio}
-                        addPlaylistSong={addPlaylistSong}
-                        playlistId={params.playlistId}
-
-
-                    />
+                        />
             }
 
 

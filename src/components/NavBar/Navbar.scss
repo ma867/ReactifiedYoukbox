@@ -6,17 +6,13 @@ $transition-color-three: #b596ea;
 
 .nav-image,
 .nav-image-logged-in {
-
-
     position: fixed;
     width: 100vw;
     z-index: 3;
 
     .nav-link {
-
         color: white !important;
         text-shadow: 0 0 10px rgba($primary-dark-color, 80%);
-
     }
 }
 
@@ -25,8 +21,10 @@ $transition-color-three: #b596ea;
 }
 
 .nav-image-logged-in {
-    background-image: linear-gradient(to right, $navbar-primary-light, $navbar-primary-dark, $transition-color-three);
-
+    background-image: linear-gradient(to right,
+            $navbar-primary-light,
+            $navbar-primary-dark,
+            $transition-color-three );
 }
 
 nav {
@@ -39,16 +37,10 @@ nav {
     align-items: center;
     padding-top: 0;
     padding-bottom: 0;
-
-}
-
-.nav-link {
-    // text-align: center;
 }
 
 .nav-link:hover {
     text-shadow: 0 0 10px rgba($primary-dark-color, 40%);
-    ;
 }
 
 .nav-search-form {
@@ -61,9 +53,11 @@ nav {
     background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 0;
     width: 100%;
+    color: white;
+}
 
-
-
+.nav-search:focus {
+    color: white;
 }
 
 .nav-search::placeholder {
@@ -77,18 +71,15 @@ nav {
     color: white !important;
 }
 
-
 .nav-search-button {
     background-color: $primary-dark-color;
     border-color: $primary-dark-color;
-
 }
 
 .nav-search-button:hover {
     background-color: $transition-color-two;
     border-color: $transition-color-two;
     color: white;
-
 }
 
 .nav-profile-icon {
@@ -100,5 +91,17 @@ nav {
 
 .nav-link {
     padding-right: 20px !important;
+    padding-left: 10px;
+}
 
+@media (max-width: 990px) {
+    .nav-link {
+        padding-right: 20px !important;
+        padding-left: 10px;
+    }
+
+    .nav-search-form {
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
 }

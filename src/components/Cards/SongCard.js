@@ -2,15 +2,9 @@
 import './Cards.scss'
 import Marquee from "react-fast-marquee"
 
-import { faEllipsisVertical, faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons"
+import { faEllipsisVertical, faHeartCirclePlus, faHeartCircleMinus } from "@fortawesome/free-solid-svg-icons"
 import { Col, Card, Dropdown } from 'react-bootstrap'
-export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
-
-    deleteSongFromSearch,
-    foundSongsAudio,
-    addSong,
-    idx
-}) {
+export default function SongCard({ page, FontAwesomeIcon, foundSong, user, deleteSongFromSearch, foundSongsAudio, addSong, idx }) {
 
     const title = foundSong.data.name
     const spotifyId = foundSong.data.id
@@ -24,7 +18,7 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
             {
                 foundSong ?
 
-                    <Col xs={6} md={3} lg={3} className='mb-3 search-cards' key={idx} >
+                    <Col xs={6} md={3} lg={3} className='mb-3 search-cards' key={spotifyId} >
                         <Card className='shadow-sm border-0 rounded-0' style={{ width: '100%' }}>
 
                             <div className='album-wrapper'>
@@ -41,19 +35,17 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                 <Marquee pauseOnHover={true} gradientWidth='5px' speed='20' className="title">
                                                     {title} &nbsp;•&nbsp;{album}&nbsp;•&nbsp;
                                                 </Marquee> :
-                                                <p className="title">
+                                                <p className="title mb-1">
                                                     {title} &nbsp;•&nbsp;{album}&nbsp;
                                                 </p>
                                         }
                                     </Card.Title>
                                     <Card.Text className='search-card-info-custom ' >
                                         {
-                                            artists.length > 2 ?
+                                            artists.length > 1 || artists[0].length > 20 ?
                                                 <Marquee pauseOnHover={true} gradientWidth='5px' speed='20'>
                                                     <p>
-
                                                         {
-
                                                             artists.map((artist, idx) => {
                                                                 artistsNames.push(artist.profile.name)
 
@@ -72,7 +64,6 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                                     )
                                                                 }
                                                             })
-
                                                         }
 
                                                     </p>
@@ -80,7 +71,6 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                 </Marquee>
                                                 :
                                                 <p>
-
                                                     {
 
                                                         artists.map((artist, idx) => {
@@ -105,14 +95,10 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                     }
 
                                                 </p>
-
                                         }
-
-
                                     </Card.Text>
                                 </div>
                                 <div className='search-card-menu'>
-
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic-search">
                                             <FontAwesomeIcon
@@ -120,7 +106,6 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                 className="icon"
                                             />
                                         </Dropdown.Toggle>
-
                                         <Dropdown.Menu>
                                             {
                                                 user?.spotifyIds.includes(spotifyId) ?
@@ -131,10 +116,10 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                         onClick={() => { deleteSongFromSearch(spotifyId) }}
                                                     >
                                                         <FontAwesomeIcon
-                                                            icon={faMinusCircle}
+                                                            icon={faHeartCircleMinus}
                                                             className="icon"
                                                         />
-                                                        &nbsp; Remove from Library
+                                                        &nbsp;Remove Song from Library
                                                     </Dropdown.Item>
 
                                                     :
@@ -143,20 +128,16 @@ export default function SongCard({ page, FontAwesomeIcon, foundSong, user,
                                                         onClick={() => { addSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }) }}
                                                     >
                                                         <FontAwesomeIcon
-                                                            icon={faPlusCircle}
+                                                            icon={faHeartCirclePlus}
                                                             className="icon"
                                                         />
-                                                        &nbsp; Add to Library
+                                                        &nbsp;Add Song to Library
                                                     </Dropdown.Item>
 
                                             }
-
-
                                         </Dropdown.Menu>
-
                                     </Dropdown>
                                 </div>
-
                             </Card.Body>
                         </Card>
                     </Col>

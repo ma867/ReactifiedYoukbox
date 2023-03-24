@@ -3,6 +3,8 @@ import NavBar from "../../components/NavBar/NavBar";
 import TitleBanner from "../../components/Banners/TitleBanner";
 import CreatePlaylistModal from "../../components/Modals/CreatePlaylistModal";
 import PlaylistCard from "../../components/Cards/PlaylistCard";
+import NotFoundBanner from "../../components/Banners/NotFoundBanner";
+import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 
@@ -22,7 +24,6 @@ export default function Playlists({ page,
     handleChange,
     handleSubmit,
     getRefreshedUser,
-    playlists,
     deletePlaylist
 
 
@@ -59,7 +60,6 @@ export default function Playlists({ page,
             />
 
 
-
             {
                 showCreatePlaylistModal ?
                     <CreatePlaylistModal
@@ -78,31 +78,39 @@ export default function Playlists({ page,
 
                     />
                     :
-                    "STILL FALSE"
+                    ""
+            }
+            {
+                user?.playlists?.length === 0 ?
+                    <NotFoundBanner message="You have no playlists in your library. Go ahead and create some by clicking 'New Playlist' on the navigation bar." />
+
+                    :
+
+                    <Container className='mb-3 mt-3 playlist-cards-container '>
+                        <Row className=''>
+                            {
+                                user?.playlists ?
+                                    user?.playlists?.map((playlist, idx) => {
+                                        return (
+                                            <PlaylistCard
+                                                playlist={playlist}
+                                                idx={idx}
+                                                FontAwesomeIcon={FontAwesomeIcon}
+                                                navigate={navigate}
+                                                deletePlaylist={deletePlaylist}
+                                            />
+                                        )
+                                    })
+                                    :
+                                    ""
+
+                            }
+
+                        </Row>
+                    </Container>
             }
 
-            <Container className='mb-3 mt-3 '>
-                <Row className=''>
-                    {
-                        user?.playlists ?
-                            user?.playlists?.map((playlist, idx) => {
-                                return (
-                                    <PlaylistCard
-                                        playlist={playlist}
-                                        idx={idx}
-                                        FontAwesomeIcon={FontAwesomeIcon}
-                                        navigate={navigate}
-                                        deletePlaylist={deletePlaylist}
-                                    />
-                                )
-                            })
-                            :
-                            "nothing"
-
-                    }
-
-                </Row>
-            </Container>
+            <Footer FontAwesomeIcon={FontAwesomeIcon} />
         </>
     )
 

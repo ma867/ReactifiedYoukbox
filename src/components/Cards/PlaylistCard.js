@@ -2,11 +2,9 @@
 import './Cards.scss'
 import Marquee from "react-fast-marquee"
 
-import { faEllipsisVertical, faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons"
+import { faEllipsisVertical, faPlusCircle, faHeartCircleMinus } from "@fortawesome/free-solid-svg-icons"
 import { Col, Card, Dropdown } from 'react-bootstrap'
-export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate, deletePlaylist,
-    idx
-}) {
+export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate, deletePlaylist, idx }) {
 
     const title = playlist?.title
     const description = playlist?.description
@@ -18,7 +16,6 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
         <>
             {
                 playlist ?
-
                     <Col xs={6} md={3} lg={3} className='mb-3 search-cards' key={idx} >
                         <Card className='shadow-sm border-0 rounded-0' style={{ width: '100%' }}>
 
@@ -50,7 +47,6 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
                                                 <>
                                                     {description}
                                                 </>
-
                                         }
 
                                     </Card.Text>
@@ -61,7 +57,6 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
                                     </Card.Text>
                                 </div>
                                 <div className='search-card-menu'>
-
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic-search">
                                             <FontAwesomeIcon
@@ -71,22 +66,16 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-
-
-
                                             <Dropdown.Item
                                                 href=""
                                                 onClick={() => { deletePlaylist(id) }}
                                             >
                                                 <FontAwesomeIcon
-                                                    icon={faMinusCircle}
+                                                    icon={faHeartCircleMinus}
                                                     className="icon"
                                                 />
                                                 &nbsp; Remove from Library
                                             </Dropdown.Item>
-
-
-
                                         </Dropdown.Menu>
 
                                     </Dropdown>
@@ -97,7 +86,6 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
                     </Col>
                     :
                     ''
-
             }
         </>
     )

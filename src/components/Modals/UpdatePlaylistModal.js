@@ -3,7 +3,6 @@ import FormButton from "../Buttons/FormButton";
 
 export default function UpdatePlaylistModal({
 
-    setUpdatedPlaylistArtwork,
     showUpdatePlaylistModal,
     setShowUpdatePlaylistModal,
     playlist,
@@ -26,7 +25,7 @@ export default function UpdatePlaylistModal({
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title className="title">Update playlist</Modal.Title>
+                <Modal.Title className="title">Update Playlist</Modal.Title>
             </Modal.Header>
             <Form
                 autoComplete="off"
@@ -40,7 +39,7 @@ export default function UpdatePlaylistModal({
             >
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="title">Playlist Title</Form.Label>
+                        <Form.Label className="title">Title</Form.Label>
                         <Form.Control
                             className="login-input"
                             type="text"
@@ -51,7 +50,7 @@ export default function UpdatePlaylistModal({
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="title">description</Form.Label>
+                        <Form.Label className="title">Description</Form.Label>
                         <Form.Control
                             className="login-input"
                             type="text"

@@ -1,7 +1,6 @@
 
 import './Cards.scss'
 import { Col } from 'react-bootstrap'
-
 export default function InformationalCard({ FontAwesomeIcon, icon, title, description }) {
     return (
 
@@ -10,7 +9,6 @@ export default function InformationalCard({ FontAwesomeIcon, icon, title, descri
                 <div className='icon-wrapper'>
                     <FontAwesomeIcon icon={icon} />
                 </div>
-
                 <h3 className='title'>{title}</h3>
                 <p>
                     {description}

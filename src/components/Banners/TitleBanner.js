@@ -2,10 +2,8 @@ import { faTrashCan, faFileEdit, faEllipsis } from '@fortawesome/free-solid-svg-
 import { Dropdown } from 'react-bootstrap'
 export default function TitleBanner({ page, user, cover, title, description, listLength, FontAwesomeIcon, deletePlaylist, setShowUpdatePlaylistModal }) {
     return (
-
         <div className='title-banner  pt-5  p-5'>
             <div className='title-banner-contents mt-5 pt-3 pb-3 p-3 '>
-
                 {
                     page !== 'search' && page !== 'playlists'
                         ? <>
@@ -42,24 +40,19 @@ export default function TitleBanner({ page, user, cover, title, description, lis
                                                         Edit Playlist</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
-
-
                                             : ''
                                     }
                                 </div>
                             </div>
-
                         </>
-                        : <>
+                        :
+                        <>
                             <h2 className='display-1 title light'>{title}</h2><br />
 
                         </>
 
                 }
             </div>
-
         </div>
-
-
     )
 }

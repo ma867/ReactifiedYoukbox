@@ -2,10 +2,7 @@ $primary-accent-color: #eba9e7;
 $secondary-accent-color: #7686df;
 $background-color: #ffffff;
 
-
-
 .informational-cards {
-
     .line {
         border: none;
         border-bottom: 1px solid #575a7b;
@@ -14,12 +11,10 @@ $background-color: #ffffff;
         width: 100%;
     }
 
-
     .service-card {
         a:hover {
             color: #ffffff;
         }
-
     }
 
     .sec-icon {
@@ -36,7 +31,6 @@ $background-color: #ffffff;
         left: -70px;
         margin-top: -5.5px;
         top: 60%;
-        // background: #333333;
         width: 50px;
     }
 
@@ -50,8 +44,6 @@ $background-color: #ffffff;
 
         width: 50px;
     }
-
-
 
     h3 {
         font-size: 20px;
@@ -82,7 +74,6 @@ $background-color: #ffffff;
         z-index: 0;
         overflow: hidden;
         background: #fff;
-
     }
 
     .service-card::after {
@@ -97,7 +88,6 @@ $background-color: #ffffff;
         transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
     }
 
-
     .icon-wrapper {
         position: relative;
         margin: auto;
@@ -110,9 +100,8 @@ $background-color: #ffffff;
         transition: 0.5s;
         z-index: 3;
         background-color: #ffffff;
-        color: $secondary-accent-color
+        color: $secondary-accent-color;
     }
-
 
     .service-card:hover:after {
         top: 0%;
@@ -129,15 +118,10 @@ $background-color: #ffffff;
         p {
             color: #ffffff;
         }
-
     }
-
-
 }
 
-
 .search-cards {
-
     .search-card-body-custom {
         height: 100px;
         font-size: 14px;
@@ -148,9 +132,10 @@ $background-color: #ffffff;
             cursor: pointer;
         }
 
-
         .search-card-title-custom {
             font-size: 14px;
+
+            margin-bottom: 0px !important;
         }
 
         .search-card-info-custom {
@@ -161,6 +146,10 @@ $background-color: #ffffff;
             overflow: hidden;
             width: 97%;
             font-size: 14px;
+        }
+
+        .dropdown-toggle::after {
+            content: none;
         }
     }
 }

@@ -39,7 +39,7 @@ export default function UpdateModal({
             >
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="title">Song Title</Form.Label>
+                        <Form.Label className="title">Title</Form.Label>
                         <Form.Control
                             className="login-input"
                             type="text"
@@ -93,7 +93,7 @@ export default function UpdateModal({
                     >
                         {({ onClick }) => (
                             <Button className="form-button" onClick={onClick}>
-                                Upload Song Artwork
+                                Update Song Artwork
                             </Button>
                         )}
                     </UploadButton>

@@ -1,6 +1,7 @@
 $primary-dark-color: #1f194c;
 $secondary-dark-color: #575a7b;
 $secondary-light-color: #ffffff;
+$transition-color-two: #8b86ef;
 
 .dark-button {
     cursor: pointer;
@@ -10,7 +11,7 @@ $secondary-light-color: #ffffff;
     font-weight: 100;
     padding: 10px;
     box-shadow: 0 0 20px rgba($primary-dark-color, 80%);
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .dark-button:hover {
@@ -18,16 +19,12 @@ $secondary-light-color: #ffffff;
     border-color: white;
     color: $primary-dark-color;
     transform: translateY(2px);
-
 }
-
 
 .dark-button:active {
     background-color: white;
     border-color: white;
 }
-
-
 
 .light-button {
     cursor: pointer;
@@ -37,7 +34,7 @@ $secondary-light-color: #ffffff;
     font-weight: 100;
     padding: 10px;
     box-shadow: 0 0 20px rgba($primary-dark-color, 80%);
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .light-button:hover {
@@ -45,16 +42,12 @@ $secondary-light-color: #ffffff;
     border-color: $primary-dark-color;
     color: $secondary-light-color;
     transform: translateY(2px);
-
 }
-
 
 .light-button:active {
     background-color: $primary-dark-color;
     border-color: $primary-dark-color;
 }
-
-
 
 .form-button {
     color: $secondary-dark-color;
@@ -68,11 +61,23 @@ $secondary-light-color: #ffffff;
     width: 100%;
     cursor: pointer;
     background: transparent;
-
-
 }
 
 .form-button:hover {
     background-color: $primary-dark-color;
-    color: $secondary-light-color
+    color: $secondary-light-color;
+}
+
+.icon-button {
+    cursor: pointer;
+    background: transparent !important;
+    border-color: transparent;
+    color: $primary-dark-color;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    background: transparent !important;
+    border-color: transparent;
+    color: $transition-color-two;
 }

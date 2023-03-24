@@ -5,7 +5,6 @@ import TitleBanner from "../../components/Banners/TitleBanner";
 import UploadSongModal from "../../components/Modals/UploadSongModal";
 import UpdateSongModal from "../../components/Modals/UpdateSongModal";
 import NotFoundBanner from "../../components/Banners/NotFoundBanner";
-import PlaylistSongList from "../../components/Lists/PlaylistSongList";
 import RecommendedSongList from "../../components/Lists/RecommendedSongList";
 import Footer from "../../components/Footer/Footer";
 import SongList from "../../components/Lists/SongList";
@@ -13,7 +12,6 @@ import SongList from "../../components/Lists/SongList";
 
 
 export default function Songs({
-    page,
     user,
     navigate,
     searchBarData,
@@ -35,7 +33,6 @@ export default function Songs({
     song,
     setSong,
     setUpdatedArtwork,
-    updatedArtwork,
     findPollenSongs,
     pollenSongs,
     foundSongsAudio
@@ -152,7 +149,7 @@ export default function Songs({
             )}
 
 
-            <Container className="mt-5  mb-5 overflow-auto playlist-song-container" >
+            <Container className="mt-5  mb-5 overflow-auto playlist-song-container-text" >
 
                 <h2 className="title">Recommended Songs</h2>
 
@@ -164,6 +161,7 @@ export default function Songs({
                 deleteSongFromSearch={deleteSongFromSearch}
                 addSong={addSong}
                 page=''
+                FontAwesomeIcon={FontAwesomeIcon}
                 user={user} />
 
 

@@ -1,21 +1,19 @@
 $primary-dark-color: #1f194c;
 
-@media(max-width: 760px) {
+@media (max-width: 760px) {
 
     table tr td:nth-child(5),
     table tr th:nth-child(5) {
         display: none;
-
     }
 }
 
 table tr th {
-
     font-size: 12px;
 }
 
-.dropdown-toggle::after {
-    content: none;
+table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 #dropdown-basic,
@@ -23,14 +21,11 @@ table tr th {
     background-color: transparent;
     color: $primary-dark-color;
     border: none;
-
 }
 
 #dropdown-basic-search {
     padding-right: 0 !important;
-
 }
-
 
 a.dropdown-item {
     font-size: 14px;
@@ -38,14 +33,38 @@ a.dropdown-item {
 }
 
 .song-list-container {
-    width: 100%;
+    max-width: 85%;
     max-height: 500px;
     min-height: 300px;
+    background-color: rgba(0, 0, 0, 0.02);
 
+    .dropdown-toggle::after {
+        content: none;
+    }
+}
+
+.song-list-container::-webkit-scrollbar {
+    // width: 5px;
+    // height: 8px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+// .song-list-container::-webkit-scrollbar-thumb {
+//     background-color: $primary-dark-color;
+//     border-radius: 5px;
+//     height: 2px;
+// }
+
+.playlist-song-container-text,
+.song-list-container-text {
+    max-width: 85%;
 }
 
 .playlist-song-container {
-
-    max-width: 80%;
+    max-width: 85%;
     max-height: 500px;
+    background-color: rgba(0, 0, 0, 0.02);
+
+    border-radius: 1rem !important;
 }

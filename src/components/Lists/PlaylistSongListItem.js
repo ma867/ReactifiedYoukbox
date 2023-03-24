@@ -1,5 +1,7 @@
 import { Button } from 'react-bootstrap'
-import LightButton from '../Buttons/LightButton'
+import { faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons'
+
+import IconButton from '../Buttons/IconButton'
 import './Lists.scss'
 export default function PlaylistSongListItem({ idx, foundSong, foundSongsAudio, addPlaylistSong, playlistId, FontAwesomeIcon }) {
 
@@ -61,8 +63,7 @@ export default function PlaylistSongListItem({ idx, foundSong, foundSongsAudio, 
                         </td>
                         <td className="main-album-title">{album}</td>
                         <td className="">
-                            <LightButton buttonHeader='Add to Playlist' buttonFunction={() => { addPlaylistSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }, playlistId) }} />
-                            {/* <Button onClick={() => { addPlaylistSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }, playlistId) }}>ADD SONG</Button> */}
+                            <IconButton buttonHeader={<FontAwesomeIcon icon={faHeartCirclePlus} className='icon' />} buttonFunction={() => { addPlaylistSong({ title, album, artist: artistsNames, artwork, audio, spotify: true, spotifyId: spotifyId }, playlistId) }} />
                         </td>
                     </tr> :
                     ""

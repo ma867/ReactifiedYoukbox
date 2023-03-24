@@ -1,8 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar"
-
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
-import { Col, Row, Container, Card, Dropdown } from 'react-bootstrap'
+import { Row, Container } from 'react-bootstrap'
 import TitleBanner from "../../components/Banners/TitleBanner"
 import SongCard from "../../components/Cards/SongCard"
 import NotFoundBanner from "../../components/Banners/NotFoundBanner"
@@ -16,31 +15,23 @@ export default function Search({ page,
     FontAwesomeIcon,
     getRefreshedUser,
     addSong,
-    ids,
-    setIds,
     foundSongs,
-    setFoundSongs,
     foundSongsAudio,
-    setFoundSongsAudio,
-    foundAlbums,
-    setFoundAlbums,
     findSong,
-    findSongAudio,
     deleteSongFromSearch
 
 }) {
     const params = useParams()
     const query = params.data
 
-
-
-
-
     useEffect(() => {
         getRefreshedUser();
         findSong(query)
     }, [query])
 
+    useEffect(() => {
+        getRefreshedUser()
+    })
 
     return (<>
         <NavBar page={page}
@@ -78,7 +69,8 @@ export default function Search({ page,
                                     foundSongsAudio={foundSongsAudio}
                                     deleteSongFromSearch={deleteSongFromSearch}
                                     addSong={addSong}
-                                    idx={idx} />
+                                    idx={idx}
+                                    user={user} />
 
 
                             )

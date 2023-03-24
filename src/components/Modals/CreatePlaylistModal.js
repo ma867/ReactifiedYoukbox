@@ -1,21 +1,7 @@
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Modal, Form, Container, Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Button, Modal, Form } from "react-bootstrap";
 import FormButton from "../Buttons/FormButton";
 
-export default function CreatePlaylistModal({
-    showCreatePlaylistModal,
-    setShowCreatePlaylistModal,
-    uploader,
-    UploadButton,
-    options,
-    handleSubmit,
-    handleChange,
-    playlistFormData,
-    setPlaylistArtwork,
-
-
+export default function CreatePlaylistModal({ showCreatePlaylistModal, setShowCreatePlaylistModal, uploader, UploadButton, options, handleSubmit, handleChange, playlistFormData, setPlaylistArtwork
 }) {
     return (
         <>
@@ -38,7 +24,7 @@ export default function CreatePlaylistModal({
                 >
                     <Modal.Body>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="title">Playlist Title</Form.Label>
+                            <Form.Label className="title">Title</Form.Label>
                             <Form.Control
                                 className="login-input"
                                 type="text"
@@ -69,17 +55,17 @@ export default function CreatePlaylistModal({
                         >
                             {({ onClick }) => (
                                 <Button className="form-button" onClick={onClick}>
-                                    Upload Song Artwork
+                                    Upload Playlist Artwork
                                 </Button>
                             )}
                         </UploadButton>
                     </Modal.Body>
                     <Modal.Footer>
-                        <FormButton buttonHeader="Upload" />
+                        <FormButton buttonHeader="Create Playlist" />
                     </Modal.Footer>
                 </Form>
             </Modal>
-            Upload modal
+
         </>
     );
 }

@@ -2,9 +2,7 @@ import { Dropdown } from 'react-bootstrap'
 import { faTrashCan, faFileEdit, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import './Lists.scss'
 export default function SongListItem({ idx, song, deleteSong,
-    setShowUpdateSongModal,
-    setSong,
-    setUpdatedArtwork, FontAwesomeIcon, page, playlistId }) {
+    setShowUpdateSongModal, setSong, setUpdatedArtwork, FontAwesomeIcon, page, playlistId }) {
 
     return (
         <>

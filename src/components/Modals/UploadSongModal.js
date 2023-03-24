@@ -1,8 +1,6 @@
 import { Button, Modal, Form } from 'react-bootstrap'
 import FormButton from '../Buttons/FormButton'
-export default function UploadSongModal({ setShowUploadSongModal, uploader,
-    UploadButton, options,
-    handleSubmit, handleChange, songFormData, setArtwork }) {
+export default function UploadSongModal({ setShowUploadSongModal, uploader, UploadButton, options, handleSubmit, handleChange, songFormData, setArtwork }) {
 
     return (
         <>
@@ -20,7 +18,7 @@ export default function UploadSongModal({ setShowUploadSongModal, uploader,
                     <Modal.Body>
 
                         <Form.Group className='mb-3' controlId='formBasicEmail'>
-                            <Form.Label className='title'>Song Title</Form.Label>
+                            <Form.Label className='title'>Title</Form.Label>
                             <Form.Control className='login-input' type='text' name='title' onChange={handleChange} value={songFormData.title} placeholder='Song title goes here' />
                         </Form.Group>
                         <Form.Group className='mb-3' controlId='formBasicEmail'>
