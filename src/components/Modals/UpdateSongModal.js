@@ -46,7 +46,7 @@ export default function UpdateModal({
                             name="title"
                             onChange={handleChangeUpdateSong}
                             defaultValue={song?.title}
-                            placeholder="Song title goes here"
+                            placeholder="Title goes here"
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

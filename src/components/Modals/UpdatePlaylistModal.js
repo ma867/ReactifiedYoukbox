@@ -46,7 +46,7 @@ export default function UpdatePlaylistModal({
                             name="title"
                             onChange={handleChangeUpdatePlaylist}
                             defaultValue={playlist?.title}
-                            placeholder="Playlist title goes here"
+                            placeholder="Title goes here"
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

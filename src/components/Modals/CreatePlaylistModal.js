@@ -31,7 +31,7 @@ export default function CreatePlaylistModal({ showCreatePlaylistModal, setShowCr
                                 name="title"
                                 onChange={handleChange}
                                 value={playlistFormData.title}
-                                placeholder="Playlist title goes here"
+                                placeholder="Title goes here"
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -42,7 +42,7 @@ export default function CreatePlaylistModal({ showCreatePlaylistModal, setShowCr
                                 name="description"
                                 onChange={handleChange}
                                 value={playlistFormData.description}
-                                placeholder="Playlist description goes here"
+                                placeholder="Description goes here"
                             />
                         </Form.Group>
 
