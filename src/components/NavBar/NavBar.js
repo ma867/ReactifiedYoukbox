@@ -130,7 +130,7 @@ export default function NavBar({
                                 </Form>
 
                                 <NavDropdown title={<div className='nav-profile-icon' style={{ backgroundImage: `url(${user?.image})` }} />} id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                                    {/* <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item> */}
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="/" onClick={() => {
                                         logOut();
