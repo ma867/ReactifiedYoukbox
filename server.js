@@ -25,6 +25,12 @@ app.use('/api/users', require('./routes/api/users'))
 app.use('/api/songs', require('./routes/api/songs'))
 app.use('/api/playlists', require('./routes/api/playlists'))
 
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
+
 app.listen(PORT, () => {
     console.log(`I am listening on ${PORT}`)
 })
