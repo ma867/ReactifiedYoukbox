@@ -22,6 +22,11 @@ $navbar-dark: #161c2d;
   }
 }
 
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 body {
   font-family: 'Quicksand', sans-serif;
