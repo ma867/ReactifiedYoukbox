@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap'
 export default function TitleBanner({ page, user, cover, title, description, listLength, FontAwesomeIcon, deletePlaylist, setShowUpdatePlaylistModal }) {
     return (
         <div className='title-banner  pt-5  p-5'>
-            <div className='title-banner-contents mt-5 pt-3 pb-3 p-3 '>
+            <div className='title-banner-contents mt-5 pt-3 pb-3  '>
                 {
                     page !== 'search' && page !== 'playlists'
                         ? <>
@@ -13,7 +13,7 @@ export default function TitleBanner({ page, user, cover, title, description, lis
                                 <h6 className='pt-2'>{description}</h6>
                                 <div className='title-banner-metadata icon-gap pt-1'>
                                     <div className='profile-icon' style={{ backgroundImage: `url(${user?.image})` }} />
-                                    <p><small>{user?.name} &nbsp;&nbsp;•&nbsp;&nbsp;{listLength} songs</small></p>
+                                    <p><small><span>{user?.name} &nbsp;&nbsp;</span>•<span>&nbsp;&nbsp;{listLength} songs</span></small></p>
                                     {
                                         page === 'playlist'
                                             ?

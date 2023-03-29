@@ -119,7 +119,7 @@ export default function Playlist({
             }
 
             <Container className="mt-5  mb-5 overflow-auto playlist-song-container-text" >
-                <div className="flex horizontal space-between">
+                <div className="playlist-song-container-title flex horizontal space-between">
                     <h2 className="title">Recommended Songs</h2>
 
                     <Form className="d-flex" onSubmit={handleSearchBarSubmit}>

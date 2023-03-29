@@ -97,11 +97,12 @@ nav {
 @media (max-width: 990px) {
     .nav-link {
         padding-right: 20px !important;
-        padding-left: 10px;
+        padding-left: 20px;
     }
 
     .nav-search-form {
         margin-bottom: 15px;
         margin-top: 10px;
+        padding-left: 20px;
     }
 }

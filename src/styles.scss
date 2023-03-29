@@ -238,3 +238,9 @@ audio {
   min-height: 100vh;
 
 }
+
+@media(max-width:412px) {
+  .playlist-song-container-title {
+    flex-direction: column;
+  }
+}
