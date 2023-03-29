@@ -36,7 +36,7 @@ export default function PlaylistCard({ page, FontAwesomeIcon, playlist, navigate
                                                 </>
                                         }
                                     </Card.Title>
-                                    <Card.Text className='search-card-info-custom pb-0 mb-0' >
+                                    <Card.Text className='search-card-info-custom playlist-description pb-0 mb-0' >
 
                                         {
                                             description?.length > 20 ?

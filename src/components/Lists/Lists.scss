@@ -8,6 +8,33 @@ $primary-dark-color: #1f194c;
     }
 }
 
+@media (max-width: 320px) {
+    .main-song-title {
+        font-size: 14px;
+    }
+
+    .main-artist-title {
+        font-size: 13px;
+    }
+
+    table tr td:nth-child(5),
+    table tr th:nth-child(5) {
+        display: none;
+    }
+
+    .song-list-container table tr td:nth-child(1),
+    .song-list-container table tr th:nth-child(1),
+    .song-list-container table tr td:nth-child(4),
+    .song-list-container table tr th:nth-child(4) {
+        display: none;
+    }
+
+    .playlist-song-container table tr td:nth-child(3) {
+        display: none;
+
+    }
+}
+
 table tr th {
     font-size: 12px;
 }
