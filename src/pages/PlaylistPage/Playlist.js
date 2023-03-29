@@ -6,7 +6,7 @@ import SongList from "../../components/Lists/SongList";
 import PlaylistSongList from "../../components/Lists/PlaylistSongList"
 import UpdatePlaylistModal from "../../components/Modals/UpdatePlaylistModal";
 import RecommendedSongList from "../../components/Lists/RecommendedSongList";
-
+import Footer from "../../components/Footer/Footer";
 
 import { Form, Button, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -168,7 +168,7 @@ export default function Playlist({
                         />
             }
 
-
+            <Footer FontAwesomeIcon={FontAwesomeIcon} />
 
         </>
     )
